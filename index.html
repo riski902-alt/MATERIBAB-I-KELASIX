@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFORMATIKA FUN - KELAS IX BAB I</title>
+    
+    <!-- Import Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Import FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           1. PALET WARNA & DESIGN SYSTEM INFORMATIKA FUN
+           ========================================================= */
+        :root {
+            /* Backgrounds */
+            --bg-main: #EAF6FF;
+            --bg-section: #F7FBFF;
+            --bg-deco: #DFF1FF;
+            --white: #FFFFFF;
+
+            /* Typography Colors */
+            --title-main: #173B57;
+            --title-sub: #41677F;
+            --text-add: #36566A;
+            --text-btn: #FFFFFF;
+
+            /* Warna Khusus 10 Tombol Utama */
+            --btn-p1: #4E82A8;
+            --btn-p2: #527F9B;
+            --btn-p3: #477FA0;
+            --btn-p4: #506F99;
+            --btn-p5: #527F82;
+            --btn-p6: #557C9A;
+            --btn-p7: #5A8296;
+            --btn-p8: #557C9A;
+            --btn-games: #667FA3;
+            --btn-sumatif: #5B7894;
+
+            /* Borders & Focus */
+            --border-default: 2px solid #315C78;
+            --border-hover: 2px solid #234A65;
+            --border-visited: 2px solid #7DB8A3;
+            --outline-focus: #D8B86A;
+            
+            /* Shadows Soft */
+            --shadow-default: 0 6px 18px rgba(37, 83, 112, 0.12);
+            --shadow-hover: 0 10px 24px rgba(37, 83, 112, 0.20);
+
+            /* Warna Aksen Coding & Scratch */
+            --accent-cyan: #67C5D8;
+            --accent-green: #7DB8A3;
+            --accent-blue: #82B5D4;
+            --accent-gold: #D8B86A;
+            --accent-coding: #5F9FC4;
+        }
+
+        /* Reset Default Margin & Padding */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-add);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* =========================================================
+           2. ANIMASI BACKGROUND DEKORATIF
+           ========================================================= */
+        .bg-deco-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-deco-icon {
+            position: absolute;
+            color: var(--bg-deco);
+        }
+
+        .float-slow { animation: floatSlow 8s ease-in-out infinite; }
+        .float-slower { animation: floatSlower 12s ease-in-out infinite reverse; }
+        .pulse-slow { animation: pulseSlow 6s ease-in-out infinite; }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(4deg); }
+        }
+        @keyframes floatSlower {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(14px) rotate(-4deg); }
+        }
+        @keyframes pulseSlow {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.06); opacity: 1; }
+        }
+
+        /* =========================================================
+           3. KONTAINER UTAMA & HEADER REVISI
+           ========================================================= */
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Teks Kelas IX – BAB I di Bagian Atas (Ukuran Lebih Kecil) */
+        .header-top {
+            color: var(--title-sub);
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        /* Judul Utama Bab (Ukuran Lebih Besar & Tegas) */
+        .main-title {
+            color: var(--title-main);
+            font-weight: 800;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* =========================================================
+           4. STYLING 10 TOMBOL UTAMA
+           ========================================================= */
+        .button-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .learning-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            color: var(--text-btn);
+            border: var(--border-default);
+            box-shadow: var(--shadow-default);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .learning-btn:hover {
+            transform: translateY(-3px) scale(1.01);
+            border: var(--border-hover);
+            box-shadow: var(--shadow-hover);
+            filter: brightness(1.04);
+        }
+
+        .learning-btn:active {
+            transform: translateY(2px) scale(0.98);
+            box-shadow: 0 4px 12px rgba(37, 83, 112, 0.15);
+            border: var(--border-hover);
+        }
+
+        .learning-btn:visited {
+            border: var(--border-visited);
+        }
+
+        .learning-btn:focus-visible {
+            outline: 3px solid var(--outline-focus) !important;
+            outline-offset: 3px !important;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border: var(--border-hover);
+            z-index: 10;
+        }
+        
+        .learning-btn:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        .icon-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+        
+        .learning-btn:hover .icon-area,
+        .learning-btn:focus-visible .icon-area {
+            transform: scale(1.15) rotate(-4deg);
+        }
+
+        .btn-text {
+            flex-grow: 1;
+            color: var(--text-btn);
+            font-weight: 600;
+            text-align: justify;
+            text-justify: inter-word;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .arrow-area {
+            color: rgba(255, 255, 255, 0.65);
+            flex-shrink: 0;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .learning-btn:hover .arrow-area,
+        .learning-btn:focus-visible .arrow-area {
+            transform: translateX(4px);
+            color: var(--white);
+        }
+
+        /* Mapping Warna Tombol */
+        .btn-p1 { background-color: var(--btn-p1); }
+        .btn-p2 { background-color: var(--btn-p2); }
+        .btn-p3 { background-color: var(--btn-p3); }
+        .btn-p4 { background-color: var(--btn-p4); }
+        .btn-p5 { background-color: var(--btn-p5); }
+        .btn-p6 { background-color: var(--btn-p6); }
+        .btn-p7 { background-color: var(--btn-p7); }
+        .btn-p8 { background-color: var(--btn-p8); }
+        .btn-games { background-color: var(--btn-games); }
+        .btn-sumatif { background-color: var(--btn-sumatif); }
+
+        /* =========================================================
+           5. BREAKPOINTS RESPONSIVE
+           ========================================================= */
+
+        /* A. DESKTOP (≥ 1200px) */
+        @media (min-width: 1200px) {
+            .container { max-width: 1100px; width: 92%; margin: 0 auto; }
+            header { padding-top: 48px; padding-bottom: 28px; }
+            .header-top { font-size: 18px; margin-bottom: 8px; }
+            .main-title { font-size: 36px; }
+
+            .button-list { margin-top: 24px; }
+            .learning-btn {
+                min-height: 82px; height: auto;
+                padding: 18px 26px; border-radius: 18px;
+                margin-bottom: 16px;
+            }
+            .btn-text { font-size: 17px; line-height: 1.5; margin-left: 22px; margin-right: 18px; }
+            .icon-area { width: 45px; font-size: 34px; }
+            .arrow-area { font-size: 20px; }
+        }
+
+        /* B. TABLET (768px - 1199px) */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .container { max-width: 900px; width: 90%; margin: 0 auto; }
+            header { padding-top: 38px; padding-bottom: 24px; }
+            .header-top { font-size: 16px; margin-bottom: 6px; }
+            .main-title { font-size: 30px; }
+
+            .button-list { margin-top: 20px; }
+            .learning-btn {
+                min-height: 78px; height: auto;
+                padding: 17px 22px; border-radius: 16px;
+                margin-bottom: 14px;
+            }
+            .btn-text { font-size: 16px; line-height: 1.5; margin-left: 18px; margin-right: 14px; }
+            .icon-area { width: 40px; font-size: 30px; }
+            .arrow-area { font-size: 18px; }
+        }
+
+        /* C. SMARTPHONE (≤ 767px) */
+        @media (max-width: 767px) {
+            .container { width: 92%; margin: 0 auto; }
+            header { padding-top: 28px; padding-bottom: 20px; }
+            .header-top { font-size: 14px; margin-bottom: 6px; }
+            .main-title { font-size: 22px; line-height: 1.25; }
+
+            .button-list { margin-top: 18px; }
+            .learning-btn {
+                min-height: 76px; height: auto;
+                padding: 16px 18px; border-radius: 15px;
+                margin-bottom: 12px;
+            }
+            .btn-text { font-size: 14px; line-height: 1.55; margin-left: 14px; margin-right: 12px; }
+            .icon-area { width: 35px; font-size: 26px; }
+            .arrow-area { font-size: 16px; }
+        }
+
+        /* D. SMARTPHONE KECIL (≤ 480px) */
+        @media (max-width: 480px) {
+            .container { width: 94%; }
+            .header-top { font-size: 13px; margin-bottom: 4px; }
+            .main-title { font-size: 19px; }
+
+            .learning-btn {
+                min-height: 72px; padding: 14px 15px; border-radius: 14px; margin-bottom: 12px;
+            }
+            .btn-text { font-size: 13px; line-height: 1.55; margin-left: 12px; margin-right: 10px; }
+            .icon-area { width: 32px; font-size: 24px; }
+        }
+
+        /* REDUCED MOTION */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .learning-btn:hover,
+            .learning-btn:focus-visible,
+            .learning-btn:active {
+                transform: none !important;
+            }
+        }
+
+        /* Efek Ripple */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-anim 0.5s linear;
+            background-color: rgba(255, 255, 255, 0.35);
+            pointer-events: none;
+        }
+        @keyframes ripple-anim {
+            to { transform: scale(4); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ELEMEN VISUAL DEKORATIF BACKGROUND -->
+    <div class="bg-deco-container" aria-hidden="true">
+        <i class="fa-solid fa-puzzle-piece bg-deco-icon float-slow" style="top: 8%; left: 6%; font-size: 100px; transform: rotate(12deg);"></i>
+        <i class="fa-solid fa-diagram-project bg-deco-icon pulse-slow" style="top: 24%; right: 5%; font-size: 90px;"></i>
+        <i class="fa-solid fa-code bg-deco-icon float-slower" style="bottom: 42%; left: 4%; font-size: 85px;"></i>
+        <i class="fa-solid fa-bug bg-deco-icon float-slow" style="bottom: 22%; right: 8%; font-size: 80px; transform: rotate(-15deg);"></i>
+        <i class="fa-solid fa-cat bg-deco-icon pulse-slow" style="bottom: 8%; left: 8%; font-size: 95px;"></i>
+    </div>
+
+    <!-- KONTAINER UTAMA -->
+    <div class="container">
+        
+        <!-- 1. JUDUL HALAMAN REVISI -->
+        <header>
+            <div class="header-top">KELAS IX – BAB I</div>
+            <h1 class="main-title">BERPIKIR KOMPUTASIONAL DALAM PEMECAHAN MASALAH</h1>
+        </header>
+
+        <!-- 2. DAFTAR 10 TOMBOL UTAMA -->
+        <main class="button-list">
+
+            <!-- Tombol 1 -->
+            <a href="#LINK_PERTEMUAN_1" class="learning-btn btn-p1">
+                <div class="icon-area" style="color: var(--accent-gold);" aria-hidden="true">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                </div>
+                <div class="btn-text">Pertemuan 1: Pengenalan 4 Pilar Berpikir Komputasional & Antarmuka Aplikasi Scratch</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 2 -->
+            <a href="#LINK_PERTEMUAN_2" class="learning-btn btn-p2">
+                <div class="icon-area" style="color: var(--accent-cyan);" aria-hidden="true">
+                    <i class="fa-solid fa-diagram-project"></i>
+                </div>
+                <div class="btn-text">Pertemuan 2: Pemodelan Algoritma Pemecahan Masalah Sehari-hari ke Blok Perintah Dasar Scratch (Motion, Looks, Sound, & Events)</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 3 -->
+            <a href="#LINK_PERTEMUAN_3" class="learning-btn btn-p3">
+                <div class="icon-area" style="color: var(--accent-green);" aria-hidden="true">
+                    <i class="fa-solid fa-rotate"></i>
+                </div>
+                <div class="btn-text">Pertemuan 3: Penerapan Struktur Kontrol Perulangan (Looping: Repeat, Forever) untuk Efisiensi Langkah Pemrograman di Scratch</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 4 -->
+            <a href="#LINK_PERTEMUAN_4" class="learning-btn btn-p4">
+                <div class="icon-area" style="color: var(--accent-blue);" aria-hidden="true">
+                    <i class="fa-solid fa-code-branch"></i>
+                </div>
+                <div class="btn-text">Pertemuan 4: Penerapan Struktur Percabangan/Kondisional (If-Then, If-Then-Else) dan Logika Pengambilan Keputusan</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 5 -->
+            <a href="#LINK_PERTEMUAN_5" class="learning-btn btn-p5">
+                <div class="icon-area" style="color: var(--accent-gold);" aria-hidden="true">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div class="btn-text">Pertemuan 5: Penggunaan Variabel, Input/Output Interaktif (Ask & Answer), serta Operator Matematika dan Logika di Scratch</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 6 -->
+            <a href="#LINK_PERTEMUAN_6" class="learning-btn btn-p6">
+                <div class="icon-area" style="color: var(--accent-cyan);" aria-hidden="true">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="btn-text">Pertemuan 6: Perancangan Proyek Scratch: Simulasi Masalah Sehari-hari / Game Edukasi Interaktif (Tahap Dekomposisi & Desain Logika)</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 7 -->
+            <a href="#LINK_PERTEMUAN_7" class="learning-btn btn-p7">
+                <div class="icon-area" style="color: var(--accent-green);" aria-hidden="true">
+                    <i class="fa-solid fa-bug"></i>
+                </div>
+                <div class="btn-text">Pertemuan 7: Pembuatan, Pengujian, dan Perbaikan (Debugging) Kode Proyek Scratch secara Mandiri/Kelompok</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 8 -->
+            <a href="#LINK_PERTEMUAN_8" class="learning-btn btn-p8">
+                <div class="icon-area" style="color: var(--accent-coding);" aria-hidden="true">
+                    <i class="fa-solid fa-person-chalkboard"></i>
+                </div>
+                <div class="btn-text">Pertemuan 8: Unjuk Kerja, Demonstrasi Proyek Scratch, dan Refleksi Penerapan Berpikir Komputasional</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 9 -->
+            <a href="#LINK_GAMES" class="learning-btn btn-games">
+                <div class="icon-area" style="color: var(--accent-blue);" aria-hidden="true">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <div class="btn-text">Games</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- Tombol 10 -->
+            <a href="#LINK_SUMATIF_BAB_I" class="learning-btn btn-sumatif">
+                <div class="icon-area" style="color: var(--accent-gold);" aria-hidden="true">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <div class="btn-text">Sumatif BAB I</div>
+                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT EFEK RIPPLE -->
+    <script>
+        document.querySelectorAll('.learning-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReducedMotion) return;
+
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const circle = document.createElement('span');
+                circle.classList.add('ripple');
+
+                const diameter = Math.max(rect.width, rect.height);
+                circle.style.width = circle.style.height = `${diameter}px`;
+                circle.style.left = `${x - diameter / 2}px`;
+                circle.style.top = `${y - diameter / 2}px`;
+
+                btn.appendChild(circle);
+
+                setTimeout(() => { circle.remove(); }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
