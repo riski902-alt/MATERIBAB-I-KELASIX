@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INFORMATIKA FUN - KELAS IX BAB I</title>
     
-    <!-- Import Google Fonts: Poppins -->
+    <!-- Import Google Fonts: Poppins & Quicksand -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://riski902-alt.github.io/TOMBOL-PILIH-KELAS/style.css">
     
     <!-- Import FontAwesome Icons -->
@@ -19,46 +19,27 @@
            1. PALET WARNA & DESIGN SYSTEM INFORMATIKA FUN
            ========================================================= */
         :root {
-            /* Backgrounds */
-            --bg-main: #EAF6FF;
-            --bg-section: #F7FBFF;
-            --bg-deco: #DFF1FF;
+            /* Backgrounds (Sesuai Index 2) */
+            --bg-main: #4A7298;        /* Solid Denim Blue */
+            --card-bg: #1E3A5F;        /* Solid Navy Blue */
+            --card-hover-bg: #23436b;  /* Hover Navy Blue */
             --white: #FFFFFF;
 
             /* Typography Colors */
-            --title-main: #173B57;
-            --title-sub: #41677F;
-            --text-add: #36566A;
+            --title-main: #FFFFFF;
+            --title-sub: #E5E7EB;
+            --text-add: #E5E7EB;
             --text-btn: #FFFFFF;
 
-            /* Warna Khusus 10 Tombol Utama */
-            --btn-p1: #4E82A8;
-            --btn-p2: #527F9B;
-            --btn-p3: #477FA0;
-            --btn-p4: #506F99;
-            --btn-p5: #527F82;
-            --btn-p6: #557C9A;
-            --btn-p7: #5A8296;
-            --btn-p8: #557C9A;
-            --btn-games: #667FA3;
-            --btn-sumatif: #5B7894;
-
-            /* Borders & Focus */
-            --border-default: 2px solid #315C78;
-            --border-hover: 2px solid #234A65;
-            --border-visited: 2px solid #7DB8A3;
-            --outline-focus: #D8B86A;
+            /* Borders & Highlights */
+            --border-default: 3px solid #88D4AB;  /* Highlight Hijau Mint */
+            --border-hover: 3px solid #A3E4C2;    /* Highlight Hijau Mint Cerah */
+            --outline-focus: #A3E4C2;
+            --icon-color: #88D4AB;                /* Warna Ikon Hijau Mint */
             
-            /* Shadows Soft */
-            --shadow-default: 0 6px 18px rgba(37, 83, 112, 0.12);
-            --shadow-hover: 0 10px 24px rgba(37, 83, 112, 0.20);
-
-            /* Warna Aksen Coding & Scratch */
-            --accent-cyan: #67C5D8;
-            --accent-green: #7DB8A3;
-            --accent-blue: #82B5D4;
-            --accent-gold: #D8B86A;
-            --accent-coding: #5F9FC4;
+            /* Shadows HD Solid */
+            --shadow-default: 0 6px 15px rgba(0, 0, 0, 0.2);
+            --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
         /* Reset Default Margin & Padding */
@@ -78,13 +59,14 @@
             align-items: center;
             position: relative;
             overflow-x: hidden;
+            padding-bottom: 24px;
         }
 
         /* =========================================================
            2. ANIMASI BACKGROUND DEKORATIF
            ========================================================= */
         .bg-deco-container {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -96,7 +78,8 @@
 
         .bg-deco-icon {
             position: absolute;
-            color: var(--bg-deco);
+            color: #FFFFFF;
+            opacity: 0.15;
         }
 
         .float-slow { animation: floatSlow 8s ease-in-out infinite; }
@@ -112,12 +95,12 @@
             50% { transform: translateY(14px) rotate(-4deg); }
         }
         @keyframes pulseSlow {
-            0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.06); opacity: 1; }
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.06); opacity: 0.25; }
         }
 
         /* =========================================================
-           3. KONTAINER UTAMA & HEADER REVISI
+           3. KONTAINER UTAMA & HEADER
            ========================================================= */
         .container {
             position: relative;
@@ -126,6 +109,8 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
+            min-height: 100vh;
+            justify-content: space-between;
         }
 
         header {
@@ -136,7 +121,18 @@
             align-items: center;
         }
 
-        /* Teks Kelas IX – BAB I di Bagian Atas (Ukuran Lebih Kecil) */
+        /* Logo Atas Tengah (Diperbesar) */
+        .header-logo {
+            width: 90px; /* Ukuran logo diperbesar agar lebih jelas */
+            height: auto;
+            margin-bottom: 14px;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+            transition: transform 0.3s ease;
+        }
+        .header-logo:hover {
+            transform: scale(1.08);
+        }
+
         .header-top {
             color: var(--title-sub);
             font-weight: 700;
@@ -144,16 +140,16 @@
             text-transform: uppercase;
         }
 
-        /* Judul Utama Bab (Ukuran Lebih Besar & Tegas) */
         .main-title {
             color: var(--title-main);
             font-weight: 800;
             line-height: 1.2;
             text-align: center;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
         }
 
         /* =========================================================
-           4. STYLING 10 TOMBOL UTAMA
+           4. STYLING TOMBOL UTAMA (BENTO CARD STYLE)
            ========================================================= */
         .button-list {
             width: 100%;
@@ -166,45 +162,42 @@
             align-items: center;
             width: 100%;
             color: var(--text-btn);
+            background-color: var(--card-bg);
             border: var(--border-default);
+            border-radius: 24px;
             box-shadow: var(--shadow-default);
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            transition: all 0.25s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
         }
 
         .learning-btn:hover {
-            transform: translateY(-3px) scale(1.01);
+            transform: scale(1.02) translateY(-4px);
+            background-color: var(--card-hover-bg);
             border: var(--border-hover);
             box-shadow: var(--shadow-hover);
-            filter: brightness(1.04);
         }
 
         .learning-btn:active {
-            transform: translateY(2px) scale(0.98);
-            box-shadow: 0 4px 12px rgba(37, 83, 112, 0.15);
-            border: var(--border-hover);
+            transform: scale(0.96);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .learning-btn:visited {
-            border: var(--border-visited);
+            border: var(--border-default);
         }
 
         .learning-btn:focus-visible {
             outline: 3px solid var(--outline-focus) !important;
             outline-offset: 3px !important;
-            transform: translateY(-3px);
+            transform: scale(1.02) translateY(-4px);
             box-shadow: var(--shadow-hover);
             border: var(--border-hover);
             z-index: 10;
-        }
-        
-        .learning-btn:focus:not(:focus-visible) {
-            outline: none;
         }
 
         .icon-area {
@@ -212,12 +205,13 @@
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
-            transition: transform 0.25s ease;
+            color: var(--icon-color) !important;
+            transition: transform 0.3s ease;
         }
         
         .learning-btn:hover .icon-area,
         .learning-btn:focus-visible .icon-area {
-            transform: scale(1.15) rotate(-4deg);
+            transform: scale(1.15) rotate(5deg);
         }
 
         .btn-text {
@@ -232,44 +226,52 @@
         }
 
         .arrow-area {
-            color: rgba(255, 255, 255, 0.65);
+            color: var(--icon-color);
+            opacity: 0.8;
             flex-shrink: 0;
-            transition: transform 0.25s ease, color 0.25s ease;
+            transition: transform 0.25s ease, opacity 0.25s ease;
         }
 
         .learning-btn:hover .arrow-area,
         .learning-btn:focus-visible .arrow-area {
             transform: translateX(4px);
-            color: var(--white);
+            opacity: 1;
         }
 
-        /* Mapping Warna Tombol */
-        .btn-p1 { background-color: var(--btn-p1); }
-        .btn-p2 { background-color: var(--btn-p2); }
-        .btn-p3 { background-color: var(--btn-p3); }
-        .btn-p4 { background-color: var(--btn-p4); }
-        .btn-p5 { background-color: var(--btn-p5); }
-        .btn-p6 { background-color: var(--btn-p6); }
-        .btn-p7 { background-color: var(--btn-p7); }
-        .btn-p8 { background-color: var(--btn-p8); }
-        .btn-games { background-color: var(--btn-games); }
-        .btn-sumatif { background-color: var(--btn-sumatif); }
+        /* =========================================================
+           5. FOOTER STYLING
+           ========================================================= */
+        .page-footer {
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            border-top: 1px solid rgba(136, 212, 171, 0.3);
+            margin-top: 32px;
+        }
+
+        .page-footer p {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.8px;
+        }
 
         /* =========================================================
-           5. BREAKPOINTS RESPONSIVE
+           6. BREAKPOINTS RESPONSIVE
            ========================================================= */
 
         /* A. DESKTOP (≥ 1200px) */
         @media (min-width: 1200px) {
             .container { max-width: 1100px; width: 92%; margin: 0 auto; }
-            header { padding-top: 48px; padding-bottom: 28px; }
+            header { padding-top: 40px; padding-bottom: 24px; }
             .header-top { font-size: 18px; margin-bottom: 8px; }
             .main-title { font-size: 36px; }
 
             .button-list { margin-top: 24px; }
             .learning-btn {
                 min-height: 82px; height: auto;
-                padding: 18px 26px; border-radius: 18px;
+                padding: 18px 26px; border-radius: 24px;
                 margin-bottom: 16px;
             }
             .btn-text { font-size: 17px; line-height: 1.5; margin-left: 22px; margin-right: 18px; }
@@ -280,14 +282,14 @@
         /* B. TABLET (768px - 1199px) */
         @media (min-width: 768px) and (max-width: 1199px) {
             .container { max-width: 900px; width: 90%; margin: 0 auto; }
-            header { padding-top: 38px; padding-bottom: 24px; }
+            header { padding-top: 32px; padding-bottom: 20px; }
             .header-top { font-size: 16px; margin-bottom: 6px; }
             .main-title { font-size: 30px; }
 
             .button-list { margin-top: 20px; }
             .learning-btn {
                 min-height: 78px; height: auto;
-                padding: 17px 22px; border-radius: 16px;
+                padding: 17px 22px; border-radius: 20px;
                 margin-bottom: 14px;
             }
             .btn-text { font-size: 16px; line-height: 1.5; margin-left: 18px; margin-right: 14px; }
@@ -298,32 +300,36 @@
         /* C. SMARTPHONE (≤ 767px) */
         @media (max-width: 767px) {
             .container { width: 92%; margin: 0 auto; }
-            header { padding-top: 28px; padding-bottom: 20px; }
+            header { padding-top: 24px; padding-bottom: 16px; }
+            .header-logo { width: 75px; } /* Diperbesar untuk tampilan seluler */
             .header-top { font-size: 14px; margin-bottom: 6px; }
             .main-title { font-size: 22px; line-height: 1.25; }
 
             .button-list { margin-top: 18px; }
             .learning-btn {
                 min-height: 76px; height: auto;
-                padding: 16px 18px; border-radius: 15px;
+                padding: 16px 18px; border-radius: 18px;
                 margin-bottom: 12px;
             }
             .btn-text { font-size: 14px; line-height: 1.55; margin-left: 14px; margin-right: 12px; }
             .icon-area { width: 35px; font-size: 26px; }
             .arrow-area { font-size: 16px; }
+            .page-footer p { font-size: 0.78rem; }
         }
 
         /* D. SMARTPHONE KECIL (≤ 480px) */
         @media (max-width: 480px) {
             .container { width: 94%; }
+            .header-logo { width: 65px; } /* Diperbesar untuk ponsel layar kecil */
             .header-top { font-size: 13px; margin-bottom: 4px; }
             .main-title { font-size: 19px; }
 
             .learning-btn {
-                min-height: 72px; padding: 14px 15px; border-radius: 14px; margin-bottom: 12px;
+                min-height: 72px; padding: 14px 15px; border-radius: 16px; margin-bottom: 12px;
             }
             .btn-text { font-size: 13px; line-height: 1.55; margin-left: 12px; margin-right: 10px; }
             .icon-area { width: 32px; font-size: 24px; }
+            .page-footer p { font-size: 0.72rem; }
         }
 
         /* REDUCED MOTION */
@@ -346,8 +352,8 @@
             position: absolute;
             border-radius: 50%;
             transform: scale(0);
-            animation: ripple-anim 0.5s linear;
-            background-color: rgba(255, 255, 255, 0.35);
+            animation: ripple-anim 0.4s linear;
+            background-color: rgba(255, 255, 255, 0.4);
             pointer-events: none;
         }
         @keyframes ripple-anim {
@@ -369,106 +375,116 @@
     <!-- KONTAINER UTAMA -->
     <div class="container">
         
-        <!-- 1. JUDUL HALAMAN REVISI -->
-        <header>
-            <div class="header-top">KELAS IX – BAB I</div>
-            <h1 class="main-title">BERPIKIR KOMPUTASIONAL DALAM PEMECAHAN MASALAH</h1>
-        </header>
+        <div>
+            <!-- 1. JUDUL HALAMAN & LOGO -->
+            <header>
+                <!-- Logo Paling Atas Tengah (Diperbesar) -->
+                <img src="https://cdn.phototourl.com/member/2026-10-20-301bf8f0-f5cd-4de0-a3fd-b9b3a2d0e3e0.png" alt="Logo Informatika Fun" class="header-logo">
+                <div class="header-top">KELAS IX – BAB I</div>
+                <h1 class="main-title">BERPIKIR KOMPUTASIONAL DALAM PEMECAHAN MASALAH</h1>
+            </header>
 
-        <!-- 2. DAFTAR 10 TOMBOL UTAMA -->
-        <main class="button-list">
+            <!-- 2. DAFTAR 10 TOMBOL UTAMA -->
+            <main class="button-list">
 
-            <!-- Tombol 1 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan1" class="learning-btn btn-p1">
-                <div class="icon-area" style="color: var(--accent-gold);" aria-hidden="true">
-                    <i class="fa-solid fa-puzzle-piece"></i>
-                </div>
-                <div class="btn-text">Pertemuan 1: Pengenalan 4 Pilar Berpikir Komputasional & Antarmuka Aplikasi Scratch</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 1 -->
+                <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan1" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <div class="btn-text">Pertemuan 1: Pengenalan 4 Pilar Berpikir Komputasional & Antarmuka Aplikasi Scratch</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 2 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan2" class="learning-btn btn-p2">
-                <div class="icon-area" style="color: var(--accent-cyan);" aria-hidden="true">
-                    <i class="fa-solid fa-diagram-project"></i>
-                </div>
-                <div class="btn-text">Pertemuan 2: Pemodelan Algoritma Pemecahan Masalah Sehari-hari ke Blok Perintah Dasar Scratch (Motion, Looks, Sound, & Events)</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 2 -->
+                <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan2" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <div class="btn-text">Pertemuan 2: Pemodelan Algoritma Pemecahan Masalah Sehari-hari ke Blok Perintah Dasar Scratch (Motion, Looks, Sound, & Events)</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 3 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan3" class="learning-btn btn-p3">
-                <div class="icon-area" style="color: var(--accent-green);" aria-hidden="true">
-                    <i class="fa-solid fa-rotate"></i>
-                </div>
-                <div class="btn-text">Pertemuan 3: Penerapan Struktur Kontrol Perulangan (Looping: Repeat, Forever) untuk Efisiensi Langkah Pemrograman di Scratch</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 3 -->
+                <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan3" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-rotate"></i>
+                    </div>
+                    <div class="btn-text">Pertemuan 3: Penerapan Struktur Kontrol Perulangan (Looping: Repeat, Forever) untuk Efisiensi Langkah Pemrograman di Scratch</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 4 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan4" class="learning-btn btn-p4">
-                <div class="icon-area" style="color: var(--accent-blue);" aria-hidden="true">
-                    <i class="fa-solid fa-code-branch"></i>
-                </div>
-                <div class="btn-text">Pertemuan 4: Penerapan Struktur Percabangan/Kondisional (If-Then, If-Then-Else) dan Logika Pengambilan Keputusan</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 4 -->
+                <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan4" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-code-branch"></i>
+                    </div>
+                    <div class="btn-text">Pertemuan 4: Penerapan Struktur Percabangan/Kondisional (If-Then, If-Then-Else) dan Logika Pengambilan Keputusan</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 5 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan5" class="learning-btn btn-p5">
-                <div class="icon-area" style="color: var(--accent-gold);" aria-hidden="true">
-                    <i class="fa-solid fa-calculator"></i>
-                </div>
-                <div class="btn-text">Pertemuan 5: Penggunaan Variabel, Input/Output Interaktif (Ask & Answer), serta Operator Matematika dan Logika di Scratch</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 5 -->
+                <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan5" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <div class="btn-text">Pertemuan 5: Penggunaan Variabel, Input/Output Interaktif (Ask & Answer), serta Operator Matematika dan Logika di Scratch</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 6 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan6" class="learning-btn btn-p6">
-                <div class="icon-area" style="color: var(--accent-cyan);" aria-hidden="true">
-                    <i class="fa-solid fa-lightbulb"></i>
-                </div>
-                <div class="btn-text">Pertemuan 6: Perancangan Proyek Scratch: Simulasi Masalah Sehari-hari / Game Edukasi Interaktif (Tahap Dekomposisi & Desain Logika)</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 6 -->
+                <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan6" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div class="btn-text">Pertemuan 6: Perancangan Proyek Scratch: Simulasi Masalah Sehari-hari / Game Edukasi Interaktif (Tahap Dekomposisi & Desain Logika)</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 7 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan7" class="learning-btn btn-p7">
-                <div class="icon-area" style="color: var(--accent-green);" aria-hidden="true">
-                    <i class="fa-solid fa-bug"></i>
-                </div>
-                <div class="btn-text">Pertemuan 7: Pembuatan, Pengujian, dan Perbaikan (Debugging) Kode Proyek Scratch secara Mandiri/Kelompok</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 7 -->
+                <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan7" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-bug"></i>
+                    </div>
+                    <div class="btn-text">Pertemuan 7: Pembuatan, Pengujian, dan Perbaikan (Debugging) Kode Proyek Scratch secara Mandiri/Kelompok</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 8 -->
-            <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan8" class="learning-btn btn-p8">
-                <div class="icon-area" style="color: var(--accent-coding);" aria-hidden="true">
-                    <i class="fa-solid fa-person-chalkboard"></i>
-                </div>
-                <div class="btn-text">Pertemuan 8: Unjuk Kerja, Demonstrasi Proyek Scratch, dan Refleksi Penerapan Berpikir Komputasional</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 8 -->
+                <a href="https://riski902-alt.github.io/DASHBOARD-MATERI/index.html?id=kelas9-sem1-bab1-pertemuan8" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-person-chalkboard"></i>
+                    </div>
+                    <div class="btn-text">Pertemuan 8: Unjuk Kerja, Demonstrasi Proyek Scratch, dan Refleksi Penerapan Berpikir Komputasional</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 9 -->
-            <a href="#LINK_GAMES" class="learning-btn btn-games">
-                <div class="icon-area" style="color: var(--accent-blue);" aria-hidden="true">
-                    <i class="fa-solid fa-gamepad"></i>
-                </div>
-                <div class="btn-text">Games</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 9 -->
+                <a href="#LINK_GAMES" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div class="btn-text">Games</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-            <!-- Tombol 10 -->
-            <a href="#LINK_SUMATIF_BAB_I" class="learning-btn btn-sumatif">
-                <div class="icon-area" style="color: var(--accent-gold);" aria-hidden="true">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                </div>
-                <div class="btn-text">Sumatif BAB I</div>
-                <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
-            </a>
+                <!-- Tombol 10 -->
+                <a href="#LINK_SUMATIF_BAB_I" class="learning-btn">
+                    <div class="icon-area" aria-hidden="true">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <div class="btn-text">Sumatif BAB I</div>
+                    <div class="arrow-area" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
 
-        </main>
+            </main>
+        </div>
+
+        <!-- 3. FOOTER HALAMAN -->
+        <footer class="page-footer">
+            <p>INFORMATIKA FUN @ By: Riski Amalia, S.Pd</p>
+        </footer>
+
     </div>
 
     <!-- JAVASCRIPT EFEK RIPPLE -->
@@ -492,7 +508,7 @@
 
                 btn.appendChild(circle);
 
-                setTimeout(() => { circle.remove(); }, 500);
+                setTimeout(() => { circle.remove(); }, 400);
             });
         });
     </script>
